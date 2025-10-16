@@ -11,7 +11,7 @@
 <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Mistério Infeliz 2.</tw-noscript></noscript></tw-story>
 <tw-storydata name="Mistério Infeliz 2" startnode="1" creator="Twine" creator-version="2.10.0" format="Harlowe" format-version="3.3.9" ifid="F4B6C6A9-3A6D-423E-8E65-F123C83FB608" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url('https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica&display=swap');
 
-tw-passage[tags~="removerLinks"] tw-expression[name~="link-goto"] {
+tw-passage[tags~="removerLinks"], tw-passage:not([tags~="Home"]) tw-expression[name~="link-goto"], tw-expression[name~="link"], tw-expression[name~="if"], tw-expression[name~="set"], br {
   display: none;
 }
 
@@ -36,8 +36,13 @@ tw-link,
 tw-link:visited, 
 tw-link:active, 
 tw-link:hover {
-    color: inherit !important;
-  	text-decoration: none !important;
+    color: inherit;
+  	text-decoration: none;
+}
+
+tw-link:active {
+	color: rgba(0, 0, 0, 0.8) !important;
+  	background-color: rgba(255, 255, 255, 0.9);
 }
 
 
@@ -78,9 +83,14 @@ tw-link:hover {
   background-color: rgba(60, 0, 0, 0.9);
 }
 
-tw-passage {
+tw-passage[tags~="removerLinks"] {
+  height: 100vh;
+  width: 80vw;
   color: rgba(255, 255, 255, 0.9);
   font-size: 50px;
+  
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
 }
 
 tw-link {
@@ -93,7 +103,7 @@ tw-link {
 }
 
 p {
-  padding-bottom: 220px;
+	line-height: 50px;
 }
 
 h2 {
@@ -108,8 +118,8 @@ h2 {
 }
 
 .creditos {
-  width: 900px;
-  font-size: 30px;
+  width: 80vw;
+  font-size: 25px;
   text-align: center;
   padding-top: 100px;
 }
@@ -122,427 +132,373 @@ h2 {
   [[Créditos |creditos]]
   &lt;/div&gt;
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="2" name="caminhoA2" tags="removerLinks" position="350,675" size="100,100">&lt;p&gt;$text Quais são os seus pontos fortes como profissional?&lt;/p&gt;
-
+&lt;p&gt;&lt;/p&gt;
 (link: &quot;Sou responsável, dedicado e aprendo rápido.&quot;)[
  (set: $points to $points + 2)
  (set: $text to &quot;Incrível.&quot;)
  (goto: &quot;caminhoA3&quot;)
 ]
-
 (link: &quot;Sou bem pontual.&quot;)[
  (set: $points to $points + 1)
  (set: $text to &quot;Bom…&quot;)
  (goto: &quot;caminhoA3&quot;)
 ]
-
 (link: &quot;Sei enrolar bem quando quero.&quot;)[
  (set: $points to $points)
  (set: $text to &quot;Ótimo.&quot;)
  (goto: &quot;caminhoA3&quot;)
 ]
-
 [[caminhoA3]]</tw-passagedata><tw-passagedata pid="3" name="caminhoA1" tags="removerLinks" position="350,525" size="100,100">&lt;p&gt;$text Por que você deseja trabalhar conosco?&lt;/p&gt;
-
+&lt;p&gt;&lt;/p&gt;
 (link: &quot;Pelo crescimento pessoal e profissional.&quot;)[
  (set: $points to $points + 2)
  (set: $text to &quot;Admirável.&quot;)
  (goto: &quot;caminhoA2&quot;)
 ]
-
 (link: &quot;Pelo salário.&quot;)[
  (set: $points to $points + 1)
  (set: $text to &quot;Entendo.&quot;)
  (goto: &quot;caminhoA2&quot;)
 ]
-
 (link: &quot;Porque não tenho nada melhor pra fazer.&quot;)[
  (set: $points to $points)
  (set: $text to &quot;...&quot;)
  (goto: &quot;caminhoA2&quot;)
 ]
-
 [[caminhoA2]]</tw-passagedata><tw-passagedata pid="4" name="caminhoB1" tags="removerLinks" position="550,600" size="100,100">&lt;p&gt;$text Você prefere trabalhar em equipe ou de forma independente?&lt;/p&gt;
-
+&lt;p&gt;&lt;/p&gt;
 (link: &quot;Gosto de trabalhar em equipe, mas sei atuar sozinho.&quot;)[
  (set: $points to $points + 2)
  (set: $text to &quot;Certo.&quot;)
  (goto: &quot;caminhoB2&quot;)
 ]
-
 (link: &quot;Tanto faz, contanto que não me atrapalhem.&quot;)[
  (set: $points to $points + 1)
  (set: $text to &quot;...&quot;)
  (goto: &quot;caminhoB2&quot;)
 ]
-
 (link: &quot;Odeio gente, prefiro isolamento total.&quot;)[
  (set: $points to $points + 0)
  (set: $text to &quot;Ok.&quot;)
  (goto: &quot;caminhoB2&quot;)
 ]
-
 [[caminhoB2]]</tw-passagedata><tw-passagedata pid="5" name="caminhoC1" tags="removerLinks" position="750,525" size="100,100">&lt;p&gt;$text Você é bom em descobrir segredos dos outros? “Stalkear”?&lt;/p&gt;
-
+&lt;p&gt;&lt;/p&gt;
 (link: &quot;Um pouco, só quando necessário.&quot;)[
  (set: $points to $points + 2)
  (set: $text to &quot;Certo…&quot;)
  (goto: &quot;caminhoC2&quot;)
 ]
-
 (link: &quot;Consigo me virar muito bem quando quero.&quot;)[
  (set: $points to $points + 1)
  (set: $text to &quot;Perfeito.&quot;)
  (goto: &quot;caminhoC2&quot;)
 ]
-
 (link: &quot;Isso não é antiético para uma agência?&quot;)[
  (set: $points to $points + 0)
  (set: $text to &quot;Se lembra da pergunta anterior?&quot;)
  (goto: &quot;caminhoC2&quot;)
 ]
-
-[[caminhoC2]]</tw-passagedata><tw-passagedata pid="6" name="caminhoA3" tags="removerLinks" position="350,800" size="100,100">&lt;p&gt;$text Pode contar uma experiência em que resolveu um problema difícil?&lt;/p&gt;
-
-(set: _altText to &quot;Entendido...&quot;)
-
+[[caminhoC2]]</tw-passagedata><tw-passagedata pid="6" name="caminhoA3" tags="removerLinks" position="350,800" size="100,100">(set: _altText to &quot;Entendido...&quot;)
 (if: $points &lt;= 2)[
 	(set: _altText to &quot;É o de se esperar...&quot;)
 ]
-
+&lt;p&gt;$text Pode contar uma experiência em que resolveu um problema difícil?&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
 (set: $quant to 0)
-
 (link: &quot;Já precisei liderar um grupo em crise e consegui concluir o projeto.&quot;)[
  (set: $points to $points + 2)
  (set: $text to &quot;Impressionante.&quot;)
  (goto: &quot;caminhoA4&quot;)
 ]
-
 (link: &quot;Resolvi um bug num jogo apagando e reinstalando o programa.&quot;)[
  (set: $points to $points + 1)
  (set: $text to &quot;Nada muito impressionante…&quot;)
  (goto: &quot;caminhoA4&quot;)
 ]
-
 (link: &quot;Eu fugi do problema até que alguém resolvesse ele.&quot;)[
  (set: $points to $points)
  (set: $text to _altText)
  (goto: &quot;caminhoA4&quot;)
 ]
+[[caminhoA4]]
 
-[[caminhoA4]]</tw-passagedata><tw-passagedata pid="7" name="caminhoA4" tags="removerLinks" position="350,925" size="100,100">&lt;p&gt;$text Caso pedíssemos para você guardar um segredo, conseguiria?&lt;/p&gt;
-
-(set: _altText to &quot;Pense Melhor...&quot;)
+&lt;style&gt;
+tw-passage {
+	grid-template-rows: repeat(6, 1fr);
+}
+&lt;/style&gt;</tw-passagedata><tw-passagedata pid="7" name="caminhoA4" tags="removerLinks" position="350,925" size="100,100">(set: _altText to &quot;Pense Melhor...&quot;)
 (set: _altCaminho to &quot;caminhoA4&quot;)
-
 (if: $quant &gt;= 1)[
 	(set: _altText to &quot;Ok então.&quot;) 
     (set: _altCaminho to &quot;caminhoA5&quot;)
 ]
-
+&lt;p&gt;$text Caso pedíssemos para você guardar um segredo, conseguiria?&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
 (link: &quot;Sim, sem problemas.&quot;)[
  (set: $points to $points + 2)
  (set: $text to &quot;Ótimo.&quot;)
  (goto: &quot;caminhoA5&quot;)
 ]
-
 (link: &quot;Acho que sim, mas não tenho certeza.&quot;)[
  (set: $points to $points + 1)
  	(set: $quant to $quant + 1)
  (set: $text to _altText)
  (goto: _altCaminho)
 ]
-
 (link: &quot;Porque eu guardaria segredos para uma empresa?&quot;)[
  (set: $points to $points)
  (set: $text to &quot;E por que não?&quot;)
  (goto: &quot;caminhoA5&quot;)
 ]
-
 [[caminhoA5]]
-[[caminhoA4]]</tw-passagedata><tw-passagedata pid="8" name="inicio" tags="" position="400,325" size="100,100">&lt;p&gt;Boa Tarde, senhor Beckenbauer. Podemos começar a sua entrevista?&lt;/p&gt;
+[[caminhoA4]]
+&lt;style&gt;
+tw-passage {
+	grid-template-rows: repeat(6, 1fr);
+}
+&lt;/style&gt;</tw-passagedata><tw-passagedata pid="8" name="inicio" tags="Home" position="400,325" size="100,100">&lt;p&gt;Boa Tarde, senhor Beckenbauer. Podemos começar a sua entrevista?&lt;/p&gt;
 
 [[Sim, podemos começar |inicioEntrevista]]</tw-passagedata><tw-passagedata pid="9" name="creditos" tags="" position="750,350" size="100,100">&lt;p class=&quot;creditos&quot;&gt;Olá, esse jogo está sendo desenvolvido a partir do clube de desenvolvimento de jogos do Campus IFRS Feliz&lt;/p&gt;</tw-passagedata><tw-passagedata pid="10" name="inicioEntrevista" tags="removerLinks" position="525,450" size="100,100">(set: $points to 0)
 (set: $text to &quot;&quot;)
-
-Vamos começar simples. O que você sabe sobre a nossa empresa?
-
+&lt;p&gt;Vamos começar simples. O que você sabe sobre a nossa empresa?&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
 (link: &quot;Sei que é uma instituição séria, com atuação relevante&quot;)[
     (set: $points to $points + 2)
     (set: $text to &quot;Boa resposta, pesquisou bem.&quot;)
     (goto: &quot;caminhoC1&quot;)
 ]
-
 (link: &quot;Não pesquisei muito, mas parece interessante&quot;)[
     (set: $points to $points + 1)
     (set: $text to &quot;Certo.&quot;)
     (goto: &quot;caminhoA1&quot;)
 ]
-
 (link: &quot;Absolutamente nada, vim só pela curiosidade&quot;)[
     (set: $points to $points)
     (set: $text to &quot;Resposta... interessante.&quot;)
     (goto: &quot;caminhoB1&quot;)
 ]
-
 [[caminhoA1]]
 [[caminhoB1]]
-[[caminhoC1]]</tw-passagedata><tw-passagedata pid="11" name="respostaEntrevista" tags="" position="500,1300" size="100,100">$text Perfeito, terminamos por aqui, você foi muito bem.
-
+[[caminhoC1]]</tw-passagedata><tw-passagedata pid="11" name="respostaEntrevista" tags="Home" position="500,1300" size="100,100">(set:$points to 10)
 (set: $passed to ($points &gt;= 5 and $points &lt;= 10))
-
+&lt;p&gt;$text Perfeito, terminamos por aqui, você foi muito bem.&lt;/p&gt;
 (if: $passed)[
 Sua entrevista foi excelente, seu perfil de candidato se encaixa totalmente com nossa vaga, se estiver interessado assine aqui por favor
 ]
 (else:)[
 Entretanto, seu perfil de candidato não se encaixa com nossa vaga, muito obrigado pelo seu tempo
 ]
-
 &lt;h2&gt;Ações:&lt;/h2&gt;
 [[Se levantar e ir embora|Home]]
-
 (if: $passed)[
 	&lt;div class=&quot;final-menu&quot;&gt;
     	[[Assinar Contrato|contratoAssinado]]
     &lt;/div&gt;
 ]</tw-passagedata><tw-passagedata pid="12" name="caminhoB2" tags="removerLinks" position="550,725" size="100,100">&lt;p&gt;$text Onde você se vê daqui a cinco anos?&lt;/p&gt;
-
+&lt;p&gt;&lt;/p&gt;
 (link: &quot;Crescendo dentro da empresa e assumindo mais responsabilidades.&quot;)[
  (set: $points to $points + 2)
  (set: $text to &quot;Promissor.&quot;)
  (goto: &quot;caminhoB3&quot;)
 ]
-
 (link: &quot;Conhecendo países, descobrindo o mundo.&quot;)[
  (set: $points to $points + 1)
  (set: $text to &quot;Admirável.&quot;)
  (goto: &quot;caminhoB3&quot;)
 ]
-
 (link: &quot;Em qualquer lugar, desde que não seja aqui.&quot;)[
  (set: $points to $points + 0)
  (set: $text to &quot;.....&quot;)
  (goto: &quot;caminhoB3&quot;)
 ]
-
 [[caminhoB3]]</tw-passagedata><tw-passagedata pid="13" name="caminhoB3" tags="removerLinks" position="550,850" size="100,100">&lt;p&gt;$text Você trabalha bem com adolescentes?&lt;/p&gt;
-
+&lt;p&gt;&lt;/p&gt;
 (link: &quot;Acredito que sim.&quot;)[
  (set: $points to $points + 2)
  (set: $text to &quot;Interessante.&quot;)
  (goto: &quot;caminhoB4&quot;)
 ]
-
 (link: &quot;Não…&quot;)[
  (set: $points to $points + 1)
  (set: $text to &quot;Entendo.&quot;)
  (goto: &quot;caminhoB4&quot;)
 ]
-
 (link: &quot;Que tipo de pergunta é essa?&quot;)[
  (set: $points to $points + 0)
  (set: $text to &quot;Você entenderá…&quot;)
  (goto: &quot;caminhoB4&quot;)
 ]
-
 [[caminhoB4]]</tw-passagedata><tw-passagedata pid="14" name="caminhoB4" tags="removerLinks" position="550,975" size="100,100">&lt;p&gt;$text Você se sentiria confortável em vigiar adolescentes?&lt;/p&gt;
-
+&lt;p&gt;&lt;/p&gt;
 (link: &quot;Sim, poderia facilmente cumprir isso.&quot;)[
  (set: $points to $points + 2)
  (set: $text to &quot;Eles são imprevisíveis…&quot;)
  (goto: &quot;caminhoB5&quot;)
 ]
-
 (link: &quot;Não entendo o propósito por trás disso…&quot;)[
  (set: $points to $points + 1)
  (set: $text to &quot;Você entenderá…&quot;)
  (goto: &quot;caminhoB5&quot;)
 ]
-
 (link: &quot;Por que exatamente adolescentes?&quot;)[
  (set: $points to $points + 0)
  (set: $text to &quot;São requisitos técnicos.&quot;)
  (goto: &quot;caminhoB5&quot;)
 ]
-
 [[caminhoB5]]</tw-passagedata><tw-passagedata pid="15" name="caminhoC2" tags="removerLinks" position="725,700" size="100,100">&lt;p&gt;$text Em situações tensas, você é capaz de se manter em profundo silêncio?&lt;/p&gt;
-
+&lt;p&gt;&lt;/p&gt;
 (link: &quot;Sim, consigo me esconder e ficar em silêncio de forma que ninguém saiba onde estou.&quot;)[
  (set: $points to $points + 2)
  (set: $text to &quot;Perfeito mesmo…&quot;)
  (goto: &quot;caminhoC3&quot;)
 ]
-
 (link: &quot;Possivelmente, depende da situação.&quot;)[
  (set: $points to $points + 1)
  (set: $text to &quot;Tem certeza de que quer perguntar?&quot;)
  (goto: &quot;caminhoC3&quot;)
 ]
-
 (link: &quot;Não, eu fico nervoso e barulhento.&quot;)[
  (set: $points to $points + 0)
  (set: $text to &quot;Realmente uma pena…&quot;)
  (goto: &quot;caminhoC3&quot;)
 ]
-
 [[caminhoC3]]</tw-passagedata><tw-passagedata pid="16" name="caminhoC3" tags="removerLinks" position="725,850" size="100,100">&lt;p&gt;$text Consegue encarar olho no olho sem piscar por muito tempo?&lt;/p&gt;
-
+&lt;p&gt;&lt;/p&gt;
 (link: &quot;Sim.&quot;)[
  (set: $points to $points + 2)
  (set: $text to &quot;Muito bom, muito bom.&quot;)
  (goto: &quot;caminhoC4&quot;)
 ]
-
 (link: &quot;Não.&quot;)[
  (set: $points to $points + 0)
  (set: $text to &quot;Que fracasso...&quot;)
  (goto: &quot;caminhoC4&quot;)
 ]
-
 [[caminhoC4]]</tw-passagedata><tw-passagedata pid="17" name="caminhoC4" tags="removerLinks" position="725,1000" size="100,100">&lt;p&gt;$text Você é capaz de se defender de ataques físicos violentos?&lt;/p&gt;
-
+&lt;p&gt;&lt;/p&gt;
 (link: &quot;Plenamente, tenho experiência em lutas.&quot;)[
  (set: $points to $points + 2)
  (set: $text to &quot;Se virará bem então…&quot;)
  (goto: &quot;caminhoC5&quot;)
 ]
-
 (link: &quot;Não é preciso usar violência, não é?&quot;)[
  (set: $points to $points + 1)
  (set: $text to &quot;...&quot;)
  (goto: &quot;caminhoC5&quot;)
 ]
-
 (link: &quot;Não, eu sirvo mais como um saco de pancada.&quot;)[
  (set: $points to $points + 0)
  (set: $text to &quot;Talvez sirva…&quot;)
  (goto: &quot;caminhoC5&quot;)
 ]
-
 [[caminhoC5]]</tw-passagedata><tw-passagedata pid="18" name="contratoAssinado" tags="" position="675,1375" size="100,100">&lt;div class=&quot;background-menu&quot;&gt;
   &lt;p class=&quot;creditos&quot;&gt;Obrigado por jogar!  
   A sua participação tornou esta aventura especial.  
   Esperamos que tenha se divertido!&lt;/p&gt;
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="19" name="caminhoA5" tags="" position="225,1050" size="100,100">&lt;p&gt;$text Você é capaz de se defender de ataques físicos violentos?&lt;/p&gt;
-
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="19" name="caminhoA5" tags="removerLinks" position="225,1050" size="100,100">&lt;p&gt;$text Você é capaz de se defender de ataques físicos violentos?&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
 (link: &quot;Plenamente, tenho experiência em lutas.&quot;)[
  (set: $points to $points + 2)
  (set: $text to &quot;Se virará bem então…&quot;)
  (goto: &quot;caminhoA6&quot;)
 ]
-
 (link: &quot;Não é preciso usar violência, não é?&quot;)[
  (set: $points to $points + 1)
  (set: $text to &quot;...&quot;)
  (goto: &quot;caminhoA6&quot;)
 ]
-
 (link: &quot;Não, eu sirvo mais como um saco de pancada.&quot;)[
  (set: $points to $points + 0)
  (set: $text to &quot;Talvez sirva…&quot;)
  (goto: &quot;caminhoA6&quot;)
 ]
-
-[[caminhoA6]]</tw-passagedata><tw-passagedata pid="20" name="caminhoA6" tags="" position="225,1175" size="100,100">&lt;p&gt;$text Você tem medo de morrer durante o trabalho?&lt;/p&gt;
-
+[[caminhoA6]]</tw-passagedata><tw-passagedata pid="20" name="caminhoA6" tags="removerLinks" position="225,1175" size="100,100">&lt;p&gt;$text Você tem medo de morrer durante o trabalho?&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
 (link: &quot;Nunca parei pra pensar, há algo perigoso que eu precise saber?&quot;)[
  (set: $points to $points)
  (set: $text to &quot;SEM PERGUNTAS!&quot;)
  (goto: &quot;respostaEntrevista&quot;)
 ]
-
 (link: &quot;Sim, por isso estou procurando um emprego seguro.&quot;)[
  (set: $points to $points + 1)
  (set: $text to &quot;Lamentável.&quot;)
  (goto: &quot;respostaEntrevista&quot;)
 ]
-
 (link: &quot;Não, eu daria a vida pelo trabalho. Literal e metaforicamente.&quot;)[
  (set: $points to $points + 2)
  (set: $text to &quot;Ótimo…&quot;)
  (goto: &quot;respostaEntrevista&quot;)
 ]
-
-[[respostaEntrevista]]</tw-passagedata><tw-passagedata pid="21" name="caminhoB5" tags="" position="400,1100" size="100,100">&lt;p&gt;$text Você já assinou um contrato de confidencialidade?&lt;/p&gt;
-
+[[respostaEntrevista]]</tw-passagedata><tw-passagedata pid="21" name="caminhoB5" tags="removerLinks" position="400,1100" size="100,100">&lt;p&gt;$text Você já assinou um contrato de confidencialidade?&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
 (link: &quot;Nunca.&quot;)[
  (set: $points to $points + 1)
  (set: $text to &quot;Entendo…&quot;)
  (goto: &quot;caminhoB6&quot;)
 ]
-
 (link: &quot;Não posso te contar, isso é confidencial.&quot;)[
  (set: $points to $points + 0)
  (set: $text to &quot;...&quot;)
  (goto: &quot;caminhoB6&quot;)
 ]
-
 (link: &quot;Talvez, vou receber a vaga?&quot;)[
  (set: $points to $points + 2)
  (set: $text to &quot;Se assinar o contrato, talvez…&quot;)
  (goto: &quot;caminhoB6&quot;)
 ]
-
-[[caminhoB6]]</tw-passagedata><tw-passagedata pid="22" name="caminhoB6" tags="" position="575,1100" size="100,100">&lt;p&gt;$text Você consegue seguir instruções sem entender o propósito delas?&lt;/p&gt;
-
+[[caminhoB6]]</tw-passagedata><tw-passagedata pid="22" name="caminhoB6" tags="removerLinks" position="575,1100" size="100,100">&lt;p&gt;$text Você consegue seguir instruções sem entender o propósito delas?&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
 (link: &quot;Consigo plenamente, basta me mandar fazer.&quot;)[
  (set: $points to $points + 2)
  (set: $text to &quot;Ótimo. Realmente ótimo.&quot;)
  (goto: &quot;respostaEntrevista&quot;)
 ]
-
 (link: &quot;Não muito bem, sem a finalidade eu me atrapalho.&quot;)[
  (set: $points to $points + 1)
  (set: $text to &quot;Entendo. Entendo perfeitamente.&quot;)
  (goto: &quot;respostaEntrevista&quot;)
 ]
-
 (link: &quot;E por que eu não posso saber o propósito?&quot;)[
  (set: $points to $points + 0)
  (set: $text to &quot;Não me questione, eu que faço as perguntas aqui.&quot;)
  (goto: &quot;respostaEntrevista&quot;)
 ]
-
-[[respostaEntrevista]]</tw-passagedata><tw-passagedata pid="23" name="caminhoC5" tags="" position="725,1125" size="100,100">&lt;p&gt;$text Você possui vínculos com os Agentes Da Justiça (ADJ)?&lt;/p&gt;
-
+[[respostaEntrevista]]</tw-passagedata><tw-passagedata pid="23" name="caminhoC5" tags="removerLinks" position="725,1125" size="100,100">&lt;p&gt;$text Você possui vínculos com os Agentes Da Justiça (ADJ)?&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
 (link: &quot;Não, mas já ouvi falar. Quem são eles?&quot;)[
  (set: $points to $points + 2)
  (set: $text to &quot;Perfeito, continue assim.&quot;)
  (goto: &quot;caminhoC6&quot;)
 ]
-
 (link: &quot;Sim, conheço alguns.&quot;)[
  (set: $points to $points + 0)
  (set: $text to &quot;Infelizmente, isso pode ser problemático…&quot;)
  (goto: &quot;caminhoC6&quot;)
 ]
-
 (link: &quot;Nunca ouvi falar.&quot;)[
  (set: $points to $points + 1)
  (set: $text to &quot;Ãnn… Eles não são muito importantes…&quot;)
  (goto: &quot;caminhoC6&quot;)
 ]
-
-[[caminhoC6]]</tw-passagedata><tw-passagedata pid="24" name="caminhoC6" tags="" position="725,1250" size="100,100">&lt;p&gt;$text Você tem medo de morrer durante o trabalho?&lt;/p&gt;
-
+[[caminhoC6]]</tw-passagedata><tw-passagedata pid="24" name="caminhoC6" tags="removerLinks" position="725,1250" size="100,100">&lt;p&gt;$text Você tem medo de morrer durante o trabalho?&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
 (link: &quot;Nunca parei para pensar, há algo perigoso que eu precise saber?&quot;)[
  (set: $points to $points + 0)
  (set: $text to &quot;Quem faz perguntas aqui sou eu, entendido?&quot;)
  (goto: &quot;respostaEntrevista&quot;)
 ]
-
 (link: &quot;Sim, por isso estou procurando um emprego seguro.&quot;)[
  (set: $points to $points + 1)
  (set: $text to &quot;Lamentável.&quot;)
  (goto: &quot;respostaEntrevista&quot;)
 ]
-
 (link: &quot;Não, eu daria a vida pelo trabalho. Literal e metaforicamente.&quot;)[
  (set: $points to $points + 2)
  (set: $text to &quot;Ótimo…&quot;)
  (goto: &quot;respostaEntrevista&quot;)
 ]
-
-[[respostaEntrevista]]</tw-passagedata><tw-passagedata pid="25" name="lore" tags="" position="300,200" size="100,100">&lt;div class=&quot;background-menu&quot;&gt;
+[[respostaEntrevista]]</tw-passagedata><tw-passagedata pid="25" name="lore" tags="Home" position="300,200" size="100,100">&lt;div class=&quot;background-menu&quot;&gt;
 	&lt;p class=&quot;creditos&quot;&gt;
     Passaram-se meses desde os acontecimentos no Campus.
 O desaparecimento dos alunos de Meio Ambiente ainda ecoa nos corredores vazios e nas memórias dos que ficaram. A investigação oficial foi encerrada às pressas, e a explicação pública — “um acidente durante uma coleta de campo” — nunca convenceu ninguém.
@@ -554,7 +510,7 @@ Agora, meses depois, João recebe uma proposta inesperada: uma vaga de estágio 
 Coincidência ou não, rumores dizem que a empresa teria comprado parte do terreno próximo ao antigo local das coletas dos estudantes desaparecidos.
 
 Desconfiado, mas determinado, João aceita a participar da entrevista.
-Ele sabe que aquela empresa esconde mais do que aparenta — e seu verdadeiro objetivo não é o estágio, mas sim descobrir a verdade por trás dos desaparecimentos e o quanto a corporação está envolvida nisso.&lt;br&gt;
+Ele sabe que aquela empresa esconde mais do que aparenta — e seu verdadeiro objetivo não é o estágio, mas sim descobrir a verdade por trás dos desaparecimentos e o quanto a corporação está envolvida nisso.
 [[Iniciar Entrevista |inicio]]
     &lt;/p&gt;
 &lt;/div&gt;</tw-passagedata></tw-storydata>
